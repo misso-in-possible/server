@@ -3,18 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = [
-    "http://localhost",
-    "http://192.168.11.45",
-    "*",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["*"],  # 全てのHTTPメソッドを許可
-    allow_headers=["*"],  # 全てのヘッダーを許可
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 currentData = 10000
